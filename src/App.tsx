@@ -1,14 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
+import github from './github.jpg';
+import loading from './gearbox.gif';
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <header className="">
+        <img src={loading} alt="WIP" style={imgStyle}/>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          This webpage is a WIP.
+        </p>
+        <p>
+          Check out my github while you're here!
+          <a href="https://github.com/alw98"><img src={github} alt="Github Logo" style={icoStyle}></img></a>
         </p>
         <a
           className="App-link"
@@ -22,5 +27,19 @@ const App: React.FC = () => {
     </div>
   );
 }
+
+
+
+const imgStyle = {
+  width: '100%',
+  maxWidth: '250px'
+}
+
+const icoStyle = {
+  width: '100%',
+  maxWidth: '25px'
+}
+
+
 
 export default App;
