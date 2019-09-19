@@ -15,14 +15,7 @@ const App: React.FC = () => {
           Check out my github while you're here!
           <a href="https://github.com/alw98"><img src={github} alt="Github Logo" style={icoStyle}></img></a>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <a href="./blog/">Click here for my CS371p blog</a>
       </header>
     </div>
   );
