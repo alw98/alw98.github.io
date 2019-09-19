@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/repository-name/static/css/main.19393e92.chunk.css",
+    "main.js": "/repository-name/static/js/main.b46e29a6.chunk.js",
+    "main.js.map": "/repository-name/static/js/main.b46e29a6.chunk.js.map",
+    "runtime~main.js": "/repository-name/static/js/runtime~main.8a6a84c6.js",
+    "runtime~main.js.map": "/repository-name/static/js/runtime~main.8a6a84c6.js.map",
+    "static/js/2.d91e6647.chunk.js": "/repository-name/static/js/2.d91e6647.chunk.js",
+    "static/js/2.d91e6647.chunk.js.map": "/repository-name/static/js/2.d91e6647.chunk.js.map",
+    "index.html": "/repository-name/index.html",
+    "precache-manifest.67a3c1fa8334ab3d8337b158412e29c8.js": "/repository-name/precache-manifest.67a3c1fa8334ab3d8337b158412e29c8.js",
+    "service-worker.js": "/repository-name/service-worker.js",
+    "static/css/main.19393e92.chunk.css.map": "/repository-name/static/css/main.19393e92.chunk.css.map",
+    "static/media/gearbox.gif": "/repository-name/static/media/gearbox.6b6fb6ad.gif",
+    "static/media/github.jpg": "/repository-name/static/media/github.0cade096.jpg"
+  }
+}
