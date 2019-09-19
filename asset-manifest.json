@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.19393e92.chunk.css",
+    "main.css": "/static/css/main.986bf13c.chunk.css",
     "main.js": "/static/js/main.93962ac9.chunk.js",
     "main.js.map": "/static/js/main.93962ac9.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.28286eac.js",
@@ -8,9 +8,9 @@
     "static/js/2.d91e6647.chunk.js": "/static/js/2.d91e6647.chunk.js",
     "static/js/2.d91e6647.chunk.js.map": "/static/js/2.d91e6647.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.dcca12be7f77c73d0e1ec54e0f67878b.js": "/precache-manifest.dcca12be7f77c73d0e1ec54e0f67878b.js",
+    "precache-manifest.1fc344573cf4e86a20a241746e5655c0.js": "/precache-manifest.1fc344573cf4e86a20a241746e5655c0.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.19393e92.chunk.css.map": "/static/css/main.19393e92.chunk.css.map",
+    "static/css/main.986bf13c.chunk.css.map": "/static/css/main.986bf13c.chunk.css.map",
     "static/media/gearbox.gif": "/static/media/gearbox.6b6fb6ad.gif",
     "static/media/github.jpg": "/static/media/github.0cade096.jpg"
   }
