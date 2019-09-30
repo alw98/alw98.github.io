@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {HashRouter as Router, Route} from "react-router-dom";
 import {Home, 
         BlogDir,
         Blog2,
@@ -11,7 +11,7 @@ import '../../stylesheets/App.css';
 class App extends React.Component<{}, {}>{
   render(){
     return (
-        <Router>
+        <Router basename='/'>
             <Header App={this}/>
             <div className={Theme + " app-container"}>
               <Route path="/" exact component={Home}/>
