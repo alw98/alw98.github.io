@@ -4,7 +4,7 @@ import loading from '../../resources/gearbox.gif';
 import { Link } from "react-router-dom";
 
 export const Home: React.FC = () => (
-    <div className="App">
+    <div className="page-body">
         <header className="">
             <img src={loading} alt="WIP" className="imgStyle"/>
             <p>

@@ -1,6 +1,6 @@
 import React from 'react';
-import '../stylesheets/Header.css';
-import {Theme, switchTheme} from '../Models/Theme';
+import '../../stylesheets/Header.css';
+import {Theme, switchTheme} from '../../Models/Theme';
 
 interface Props {
 	App: React.Component;

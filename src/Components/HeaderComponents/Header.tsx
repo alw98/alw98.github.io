@@ -1,5 +1,5 @@
 import React from 'react';
-import '../stylesheets/Header.css';
+import '../../stylesheets/Header.css';
 import { NavLink } from "react-router-dom";
 import { ThemeToggle } from "./ThemeController";
 
