@@ -2,7 +2,7 @@ import React from 'react';
 import {BlogEntry} from '../../BlogComponents/BlogEntry';
 import { QAModel } from '../../../Models/QAModel';
 
-let title = 'CS371p Fall 2019: Week X'
+let title = 'CS371p Fall 2019: Week 5'
 let qas: QAModel[] = [];
 
 let q1 = `What did I do this past week?`;
