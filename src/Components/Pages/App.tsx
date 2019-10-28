@@ -1,11 +1,6 @@
 import React from 'react';
 import {HashRouter as Router, Route} from "react-router-dom";
-import {Home, 
-        BlogDir,
-        Blog2,
-        Blog3,
-        Blog4,
-        Blog5,} from "./Pages";
+import * as Pages from "./Pages";
 import {Header} from "../HeaderComponents/Header";
 import {Theme} from "../../Models/Theme";
 import '../../stylesheets/App.css';
@@ -16,12 +11,13 @@ class App extends React.Component<{}, {}>{
         <Router basename='/'>
             <Header App={this}/>
             <div className={Theme + " app-container"}>
-              <Route path="/" exact component={Home}/>
-              <Route path="/blog" exact component={BlogDir}/>
-              <Route path="/blog/2" exact component={Blog2}/>
-              <Route path="/blog/3" exact component={Blog3}/>
-              <Route path="/blog/4" exact component={Blog4}/>
-              <Route path="/blog/5" exact component={Blog5}/>
+              <Route path="/" exact component={Pages.Home}/>
+              <Route path="/blog" exact component={Pages.BlogDir}/>
+              <Route path="/blog/2" exact component={Pages.Blog2}/>
+              <Route path="/blog/3" exact component={Pages.Blog3}/>
+              <Route path="/blog/4" exact component={Pages.Blog4}/>
+              <Route path="/blog/5" exact component={Pages.Blog5}/>
+              <Route path="/blog/6" exact component={Pages.Blog6}/>
               <div className='background'></div>
             </div>
         </Router>
