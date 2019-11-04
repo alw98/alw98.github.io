@@ -18,10 +18,16 @@ class App extends React.Component<{}, {}>{
               <Route path="/blog/4" exact component={Pages.Blog4}/>
               <Route path="/blog/5" exact component={Pages.Blog5}/>
               <Route path="/blog/6" exact component={Pages.Blog6}/>
+              <Route path="/blog/7" exact component={Pages.Blog7}/>
+              <Route path="/automata" exact component={Pages.Automata}/>
+              <button onClick={this.click}></button>
               <div className='background'></div>
             </div>
         </Router>
     );
+  }
+  click(){
+    console.log(Pages);
   }
 }
 export default App;
