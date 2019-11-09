@@ -14,7 +14,8 @@ export const Home: React.FC = () => (
                 Check out my github while you're here!
                 <a href="https://github.com/alw98"><img src={github} alt="Github Logo" className="icoStyle"></img></a>
             </p>
-            <Link to="/blog">Click here for my CS371p blog</Link>
+            <Link to="/blog">Click here for my CS371p blog</Link><br/>
+            <Link to="/automata">Link to rock paper scissors automata</Link>
         </header>
     </div>
 );
