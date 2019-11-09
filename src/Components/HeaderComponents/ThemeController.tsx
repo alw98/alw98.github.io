@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../stylesheets/Header.css';
 import {Theme, switchTheme} from '../../Models/Theme';
 
 interface Props {
@@ -18,13 +17,14 @@ export class ThemeToggle extends React.Component<Props, State>{
         return(
             <div className="theme-toggle">
                 <svg 
+                    className="theme-toggle-svg"
                     xmlns="http://www.w3.org/2000/svg" 
                     xmlnsXlink="http://www.w3.org/1999/xlink"
-                    width="40px"
-                    height="40px"
+                    width="30px"
+                    height="30px"
                     onClick={this.toggle}
                 >
-                    <g>
+                    <g transform="scale(.75)">
                         <path className="theme-toggle" style={this.state} d="M17.9,40c-0.5-0.1-1-0.1-1.6-0.2c-2.5-0.3-4.8-1-7-2.1C7,36.5,5,35,3.3,33.1c-1.3-1.4-2.4-3-3.2-4.7
                         c0-0.1-0.1-0.1-0.1-0.2c0,0,0,0,0-0.1c0.5,0.3,1.1,0.7,1.6,1c1.8,1.1,3.7,1.8,5.8,2.3c3.3,0.7,6.5,0.5,9.7-0.5
                         c2.5-0.8,4.7-2.1,6.6-3.8c2-1.8,3.6-4,4.5-6.6c1-2.5,1.3-5.1,1-7.7c-0.3-2.9-1.3-5.6-3-8C25,3,23.4,1.5,21.6,0.3

@@ -22,9 +22,10 @@ html {
   z-index: -10;
 }
 
-.imgStyle {
+.wip-gear {
   width: 100%;
   max-width: 250px;
+  margin-top: 10px;
 }
 
 .icoStyle {
@@ -54,4 +55,8 @@ div, a {
 
 .light a {
   color: black;
+}
+
+.automata{
+  overflow: hidden;
 }

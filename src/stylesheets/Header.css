@@ -53,10 +53,14 @@
  }
 
  .theme-toggle{
-     margin-left: auto;
-     
+    margin-left: auto;
+    display:block;
     transition-property: all;
     transition-duration: 1s;
+ }
+
+ .theme-toggle-svg{
+     display:block;
  }
 
 /* Desktop */

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Home: React.FC = () => (
     <div className="page-body">
         <header className="">
-            <img src={loading} alt="WIP" className="imgStyle"/>
+            <img src={loading} alt="WIP" className="wip-gear"/>
             <p>
                 This webpage is a WIP.
             </p>

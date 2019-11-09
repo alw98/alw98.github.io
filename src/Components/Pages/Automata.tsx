@@ -1,24 +1,24 @@
 import React from 'react';
 import Sketch from 'react-p5';
+import * as ColorAuto from '../../Models/ColorAuto'; 
+import '../../stylesheets/Automaton.css';
 
 export class Automata extends React.Component<{}, {}>{
-  x = 50;
-  y = 50;
-
   render(){
     return (
-      <Sketch setup={this.setup} draw={this.draw}/>
+      <div className="auto-container">
+        <div className="auto-inputs">
+          <input type="radio" id="auto-r" name="colors" className="auto-radio" onClick={ColorAuto.colorRed} defaultChecked/>
+          <label htmlFor="auto-r"/>
+
+          <input type="radio" id="auto-g" name="colors" className="auto-radio" onClick={ColorAuto.colorGreen}/>
+          <label htmlFor="auto-g"/>
+
+          <input type="radio" id="auto-b" name="colors" className="auto-radio" onClick={ColorAuto.colorBlue}/>
+          <label htmlFor="auto-b"/>
+        </div>
+        <Sketch className='automaton' setup={ColorAuto.setup} draw={ColorAuto.draw} windowResized={ColorAuto.windowResized} mouseDragged={ColorAuto.mouseDragged} mouseReleased={ColorAuto.mouseReleased}/>
+      </div>
     );
-  }
-
-  setup = (p5: any, parent: any) => {
-    p5.createCanvas(500, 500).parent(parent);
-    console.log(parent);
-  }
-
-  draw = (p5: any) => {
-    p5.background(0);
-    p5.ellipse(this.x, this.y, 70, 70);
-    this.x++;
   }
 }

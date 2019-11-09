@@ -1,0 +1,81 @@
+.automaton-canvas{
+    display: block;
+}
+.auto-inputs{
+    position: absolute;
+    background-color: transparent !important;
+    right: 0px;
+    width: 200px;
+    height: 100px;
+}
+label, label:before, label:after {
+    margin: auto;
+    padding: 0;
+    outline: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+label {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+label:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: all .2s;
+}
+
+#auto-r + label {
+    left: -60px;
+    background: #EA4335;
+    animation-delay: 0s;
+}
+#auto-r + label:before {
+    transform: scale(0);
+}
+#auto-r:checked + label:before {
+    transform: scale(1);
+    transition: all .4s;
+}
+
+
+#auto-g + label {
+    left: 40px;
+    background: #34A853;
+    animation-delay: 0s;
+}
+#auto-g + label:before {
+    transform: scale(0);
+}
+#auto-g:checked + label:before {
+    transform: scale(1);
+    transition: all .4s;
+}
+
+#auto-b + label {
+    left: 140px;
+    background: #4285F4;
+    animation-delay: 0s;
+}
+#auto-b + label:before {
+    transform: scale(0);
+}
+#auto-b:checked + label:before {
+    transform: scale(1);
+    transition: all .4s;
+}
+
+[type="radio"] {
+    display: none;
+}
