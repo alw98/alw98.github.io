@@ -1,5 +1,4 @@
 import {Theme} from './Theme';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 const DEBUG = false;
 let p5, parent, w, h;
@@ -34,7 +33,6 @@ export const setup = (p: any, par: any) => {
           e.preventDefault();
   
   }, false);
-  disableBodyScroll(canvas);
 }
 
 export const draw = (p5: any) => {
