@@ -1,13 +1,14 @@
 import {Theme} from './Theme';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 const DEBUG = false;
 let p5, parent, w, h;
-const xRes = 200, yRes = 200, maxLev = 4, simSteps = 5;
+const xRes = 200, yRes = 200, maxLev = 4, simSteps = 1;
 let grid;
 let lastTheme
 let background
-let curColor = {r: 255, g: 0, b: 0};
-let alive : Pair[] = [];
+let curColor;
+let alive : Pair[];
 
 export const setup = (p: any, par: any) => {
   p5 = p;
@@ -22,9 +23,18 @@ export const setup = (p: any, par: any) => {
       grid[x][y] = robit;
     }
   } 
+  alive = [];
   lastTheme = Theme;
-  background = Theme === 'dark' ? 0 : 255;
-  p5.createCanvas(w, h).parent(parent).canvas.className += " automaton-canvas";
+  background = Theme === 'dark' ? 0 : 255; 
+  curColor = {r: 255, g: 0, b: 0};
+  let canvas = p5.createCanvas(w, h).parent(parent).canvas;
+  canvas.className += " automaton-canvas"
+  canvas.addEventListener('touchmove', function(e) {
+  
+          e.preventDefault();
+  
+  }, false);
+  disableBodyScroll(canvas);
 }
 
 export const draw = (p5: any) => {
