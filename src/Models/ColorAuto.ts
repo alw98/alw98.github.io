@@ -108,7 +108,7 @@ export const setup = (p: any, par: any) => {
   p5 = p;
   p5.disableFriendlyErrors = true;
   parent = par;
-  w = window.innerWidth;
+  w = parent.offsetWidth;
   h = window.innerHeight - 40;
   grid = Array(xRes).fill(0).map(x => Array(yRes));
   for(let x = 0; x < grid.length; x++){
@@ -122,6 +122,7 @@ export const setup = (p: any, par: any) => {
   background = Theme === 'dark' ? 0 : 255; 
   curColor = {r: 255, g: 0, b: 0};
   let canvas = p5.createCanvas(w, h).parent(parent).canvas;
+  windowResized(p5);
   canvas.className += " automaton-canvas"
   canvas.addEventListener('touchmove', function(e) {
           e.preventDefault();
@@ -191,7 +192,7 @@ const updateGrid = () => {
 }
 
 export const windowResized = (p5: any) => {
-  w = window.innerWidth;
+  w = parent.offsetWidth;
   h = window.innerHeight - 40;
   p5.resizeCanvas(w, h);
 }
