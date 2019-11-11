@@ -1,13 +1,108 @@
 import {Theme} from './Theme';
+import {initGl} from './Render/Utils';
+import {Camera} from './Render/Camera';
+import {RenderItem} from './Render/Render';
+import {mat4} from 'gl-matrix';
 
 const DEBUG = false;
-let p5, parent, w, h;
+const NEAR_PLANE = .01, FAR_PLANE = 100;
+
+let p5, parent, canvas, w, h, aspect, camera, projMat, board;
 const xRes = 200, yRes = 200, maxLev = 4, simSteps = 1;
-let grid;
-let lastTheme
-let background
-let curColor;
+let grid, lastTheme, background, curColor, gl;
 let alive : Pair[];
+
+export const create = (c) => {
+  canvas = c;
+  gl = initGl(c);
+
+  if(!gl) return;
+
+  camera = initCamera();
+
+  board = makeBoard();
+  renderBoard();
+  window.addEventListener('resize', resizeEvent);
+  resizeEvent();
+}
+
+const renderBoard = () => {
+  
+	let uMat4fvs = [];
+	uMat4fvs['uViewMat'] = camera.getViewMat();
+
+	
+	let boardModel = mat4.create();
+	let r = [0, 0, 0, 0];	
+	let s = [1, 1, 1, 1];
+	let t = [...camera.eye];
+	t[1] -= 1;
+	
+	mat4.fromRotationTranslationScale(boardModel, r, t, s);
+	uMat4fvs['uModelMat'] = boardModel;
+
+	board.render(uMat4fvs);
+}
+
+const makeBoard = () => {
+  let result = new RenderItem(gl, vsSrc, fsSrc);
+
+	let verts: number[] = [];
+  verts.push(-1, -1,  1);
+  verts.push(1,  -1,  1);
+  verts.push(-1, -1, -1);
+  verts.push(1,  -1, -1);
+
+	let numC = 3;
+	let type = gl.FLOAT;
+	let norm = false;
+	let stride = 3 * Float32Array.BYTES_PER_ELEMENT;
+	let offset = 0;
+	
+	result.addAttrib('aPos', verts, numC, type, norm, stride, offset);
+	
+  let ind: number[] = [];
+  ind.push(2, 3, 1);
+  ind.push(2, 1, 0);
+  result.addElemArrBuff(ind);
+
+	projMat = mat4.create();
+	let fov = Math.PI / 4;
+	
+	mat4.perspective(projMat,
+					 fov,
+					 aspect,
+					 NEAR_PLANE,
+					 FAR_PLANE);
+	
+	result.addUMat4fv('uViewMat');
+	result.addUMat4fv('uModelMat');
+	result.addConstUMat4fv('uProjMat', projMat);
+  result.renderMode = gl.TRIANGLES;
+  result.renderBack = true;
+	return result;
+}
+
+const resizeEvent = () => {
+  w = window.innerWidth;
+  h = window.innerHeight - 40;
+  canvas.width = w;
+  canvas.height = h;
+
+	aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
+  gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  gl.clear(gl.COLOR_BUFFER_BIT);
+}
+
+
+function initCamera(){
+	let eye  = [0,  1, 0, 0];
+	let look = [0, -1, 0, 0];
+	let up 	 = [0,  0, 1, 0];
+	let dist = 3;
+  
+  return new Camera(eye, look, up, dist);
+}
 
 export const setup = (p: any, par: any) => {
   p5 = p;
@@ -29,9 +124,7 @@ export const setup = (p: any, par: any) => {
   let canvas = p5.createCanvas(w, h).parent(parent).canvas;
   canvas.className += " automaton-canvas"
   canvas.addEventListener('touchmove', function(e) {
-  
           e.preventDefault();
-  
   }, false);
 }
 
@@ -49,7 +142,8 @@ export const draw = (p5: any) => {
 
 const updateGrid = () => {
   for(let i = 0; i < simSteps; i++){
-    alive.forEach(pair => {
+    for(let i = 0; i < alive.length; i++){
+      let pair = alive[i];
       let x = pair.l, y = pair.r;
       let cur = grid[x][y];
       if(!cur.exists){
@@ -92,9 +186,8 @@ const updateGrid = () => {
           }
         }
       }
-    });
+    }
   }
-  
 }
 
 export const windowResized = (p5: any) => {
@@ -275,3 +368,30 @@ class Pair{
     this.r = r;
   }
 }
+
+const vsSrc = `
+  precision mediump float;
+
+  attribute vec3 aPos;
+
+  uniform mat4 uModelMat;
+  uniform mat4 uProjMat;
+  uniform mat4 uViewMat;
+
+  varying vec4 vColor;
+  void main(){
+    vec4 nPos = uProjMat * uViewMat * uModelMat * vec4(aPos.x, aPos.y, aPos.z, 1.);
+    gl_Position = nPos;
+    vColor = vec4(1., 1., 1., 1.);
+  }
+`;
+
+const fsSrc = `
+  precision mediump float;
+
+  varying vec4 vColor;
+
+  void main(){
+    gl_FragColor = vec4(vColor.r, vColor.g, vColor.b, vColor.a);
+  }
+`;

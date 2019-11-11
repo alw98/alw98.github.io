@@ -19,6 +19,7 @@ class App extends React.Component<{}, {}>{
               <Route path="/blog/5" exact component={Pages.Blog5}/>
               <Route path="/blog/6" exact component={Pages.Blog6}/>
               <Route path="/blog/7" exact component={Pages.Blog7}/>
+              <Route path="/blog/8" exact component={Pages.Blog8}/>
               <Route path="/automata" exact component={Pages.Automata}/>
               <div className='background'></div>
             </div>

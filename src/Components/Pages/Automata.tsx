@@ -2,9 +2,13 @@ import React from 'react';
 import Sketch from 'react-p5';
 import * as ColorAuto from '../../Models/ColorAuto'; 
 import '../../stylesheets/Automaton.css';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
-export class Automata extends React.Component<{}, {}>{
+interface Props{
+  scroll: boolean;
+}
+
+export class Automata extends React.Component<Props, {}>{
 
   targetElement;
 
@@ -25,10 +29,14 @@ export class Automata extends React.Component<{}, {}>{
       </div>
     );
   }
+  // <canvas className='automaton automaton-canvas'/>
+  // <Sketch className='automaton' setup={ColorAuto.setup} draw={ColorAuto.draw} windowResized={ColorAuto.windowResized} mouseDragged={ColorAuto.mouseDragged} mouseReleased={ColorAuto.mouseReleased}/>
 
   componentDidMount() {
-    this.targetElement = document.querySelector('#auto-scroll-lock');
-    disableBodyScroll(this.targetElement);
+    //ColorAuto.create(document.querySelector('.automaton'));
+    if(!this.props.scroll){
+      disableBodyScroll('#auto-scroll-lock');
+    }
   }
   
   showTargetElement = () => {

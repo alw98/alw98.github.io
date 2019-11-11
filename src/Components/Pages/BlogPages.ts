@@ -4,3 +4,4 @@ export * from './BlogEntries/4';
 export * from './BlogEntries/5';
 export * from './BlogEntries/6';
 export * from './BlogEntries/7';
+export * from './BlogEntries/8';
