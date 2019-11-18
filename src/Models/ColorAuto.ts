@@ -122,7 +122,7 @@ export const setup = (p: any, par: any) => {
   background = Theme === 'dark' ? 0 : 255; 
   curColor = {r: 255, g: 0, b: 0};
   let canvas = p5.createCanvas(w, h).parent(parent).canvas;
-  windowResized(p5);
+  setTimeout(() => {if(parent.offsetWidth != w) windowResized(p5)}, 5);
   canvas.className += " automaton-canvas"
   canvas.addEventListener('touchmove', function(e) {
           e.preventDefault();
@@ -153,6 +153,11 @@ const updateGrid = () => {
       }
       let dx = Math.floor(Math.random() * 3 - 1);
       let dy = Math.floor(Math.random() * 3 - 1);
+      if(x === 0 && dx === -1) dx = xRes - 1;
+      if(x === xRes - 1 && dx === 1) dx = -xRes + 1;
+      if(y === 0 && dy === -1) dy = yRes - 1;
+      if(y === yRes - 1 && dy === 1) dy = - yRes + 1;
+
       if((x !== 0 || dx !== -1) && (x !== xRes - 1 || dx !== 1)){
         if((y !== 0 || dy !== -1) && (y !== yRes - 1 || dy !== 1)){
           let f = grid[x + dx][y + dy];
