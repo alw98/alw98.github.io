@@ -9,8 +9,9 @@ interface Props{
 }
 
 export class Automata extends React.Component<Props, {}>{
-
-  targetElement;
+  static defaultProps = {
+    scroll: false
+  }
 
   render(){
     return (
@@ -38,10 +39,6 @@ export class Automata extends React.Component<Props, {}>{
       disableBodyScroll('#auto-scroll-lock');
     }
   }
-  
-  showTargetElement = () => {
-  };
-  
   componentWillUnmount() {
     clearAllBodyScrollLocks();
   }

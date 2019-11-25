@@ -122,7 +122,7 @@ export const setup = (p: any, par: any) => {
   background = Theme === 'dark' ? 0 : 255; 
   curColor = {r: 255, g: 0, b: 0};
   let canvas = p5.createCanvas(w, h).parent(parent).canvas;
-  setTimeout(() => {if(parent.offsetWidth != w) windowResized(p5)}, 5);
+  setTimeout(() => {if(parent.offsetWidth !== w) windowResized(p5)}, 5);
   canvas.className += " automaton-canvas"
   canvas.addEventListener('touchmove', function(e) {
           e.preventDefault();
@@ -137,8 +137,8 @@ export const draw = (p5: any) => {
   updateGrid();
   drawGrid(p5, ma, hma);
 
-    if(p5.frameCount % 25 === 0)
-      console.log(p5.frameRate());
+  if(p5.frameCount % 25 === 0 && DEBUG)
+    console.log(p5.frameRate());
 }
 
 const updateGrid = () => {

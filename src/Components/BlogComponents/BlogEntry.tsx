@@ -16,7 +16,7 @@ export class BlogEntry extends React.Component<Props, {}>{
                 <h1>Armond Willingham</h1>
                 <h2>{this.props.title}</h2>
                 <img src={image} alt="headshot" className="blog-headshot"/>
-                {this.props.qas.map(qa => <BlogQA question={qa.question} response={qa.response}/>)}
+                {this.props.qas.map(qa => <BlogQA question={qa.question} response={qa.response} key={qa.question}/>)}
             </div>
         )
     }
