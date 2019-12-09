@@ -20,5 +20,7 @@ export const BlogDir: React.FC = () => (
 		<Link to="/blog/9">Blog post 9</Link>
 		<br/>
 		<Link to="/blog/10">Blog post 10</Link>
+		<br/>
+		<Link to="/blog/final">Final blog post</Link>
 	</div>
 );
