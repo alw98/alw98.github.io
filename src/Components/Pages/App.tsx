@@ -23,6 +23,7 @@ class App extends React.Component<{}, {}>{
               <Route path="/blog/9" exact component={Pages.Blog9}/>
               <Route path="/blog/10" exact component={Pages.Blog10}/>
               <Route path="/blog/final" exact component={Pages.BlogFinal}/>
+              <Route path="/files" exact component={Pages.FilesDir}/>
               <Route path="/automata" exact component={Pages.Automata}/>
               <div className='background'></div>
             </div>

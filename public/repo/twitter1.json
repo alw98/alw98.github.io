@@ -1,0 +1,10 @@
+{
+    "post": {
+        "src": "twitter",
+		"content": {
+            "title": "This is a title from twitter",
+            "post": "This is the post itself from twitter",
+            "author": "Armond Willingham"
+        }
+    }
+}

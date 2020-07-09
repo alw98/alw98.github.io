@@ -73,6 +73,11 @@ export class Header extends React.Component<Props, {}>{
                                         Automata
                                     </span>
                                 </NavLink>
+                                <NavLink className="header-nav-link" to="/files">
+                                    <span>
+                                        Files
+                                    </span>
+                                </NavLink>
                                 <ThemeToggle App={this.props.App}/>
                             </div>
                         </div>

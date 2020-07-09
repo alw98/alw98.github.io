@@ -1,0 +1,10 @@
+{
+    "post": {
+        "src": "reddit",
+		"content": {
+            "title": "This is a title",
+            "post": "This is the post itself",
+            "author": "Armond Willingham"
+        }
+    }
+}
