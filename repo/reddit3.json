@@ -1,0 +1,13 @@
+{
+    "post": {
+        "src": "reddit",
+		"content": {
+            "title": "This is a title3",
+            "post": "This is the post itself3",
+            "author": "awillingham4",
+            "date": "7/7/2020 9:10PM",
+            "comments": 15,
+            "subreddit": "r/subreddit"
+        }
+    }
+}
